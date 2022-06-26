@@ -8,6 +8,15 @@ public class Account {
         this.name = name;
     }
 
+    /**
+     * Выполняется проверка названия аккаунта для банковской карты:
+     * <ul>
+     * <li>в строке не меньше 3 и не больше 19 символов,
+     * <li>в строке есть только один пробел,
+     * <li>пробел стоит не в начале и не в конце строки.
+     * </ul>
+     * @return
+     */
     public boolean checkNameToEmboss() {
         checkNotNull(name);
         if ((name.length() < 3) || (name.length() > 19))

@@ -1,8 +1,9 @@
 public class Praktikum {
 
     public static void main(String[] args) {
-        System.out.println("Пример работы программы: Для печати передана строка \"Тимоти Шаламе\"");
-        Account account = new Account("Тимоти Шаламе");
+        String name = "Тимоти Шаламе";
+        System.out.println("Пример работы программы: Для печати передана строка \"" + name + "\"");
+        Account account = new Account(name);
         //печать банковской карты
         if (account.checkNameToEmboss())
             System.out.println("Банковская карта на имя: " + account);
