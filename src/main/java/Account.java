@@ -1,4 +1,4 @@
-import static com.google.common.base.Preconditions.*;
+
 
 public class Account {
 
@@ -18,14 +18,11 @@ public class Account {
      * @return
      */
     public boolean checkNameToEmboss() {
-        checkNotNull(name);
-        if ((name.length() < 3) || (name.length() > 19))
-            return false;
-        if (name.startsWith(" ") || name.endsWith(" "))
-            return false;
-        if (!name.contains(" ") || (name.split(" ").length > 2))
-            return false;
-        return true;
+        if ((name == null) || name.isEmpty()) return false;
+        boolean isLengthValid = name.length() >= 3 && name.length() <= 19;
+        boolean isSpaceOne = name.indexOf(' ') == name.lastIndexOf(' ');
+        boolean isBeginAndEndSpacesNotExist = name.indexOf(' ') > 0 && name.indexOf(' ') + 1 != name.length();
+        return isLengthValid && isSpaceOne && isBeginAndEndSpacesNotExist;
     }
 
 }

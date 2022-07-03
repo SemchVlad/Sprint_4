@@ -1,7 +1,10 @@
+import io.qameta.allure.Description;
+import io.qameta.allure.Step;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import static org.junit.Assert.*;
+
+import static org.junit.Assert.assertEquals;
 
 @RunWith(Parameterized.class)
 public class AccountParameterTest {
@@ -19,21 +22,25 @@ public class AccountParameterTest {
         return new Object[][] {
                 { "Тимоти Шаламе", true},
                 { "Владимир Труманский ", false},
-                { "Грегорий Туманский", true},
+                { "Грегорий Труманский", true},
+                { "Грегорий Водоканалов", false},
                 { "Д И", true},
                 { "Ди", false},
                 { " Тимоти Шаламе", false},
                 { "Тимоти Шаламе ", false},
                 { "ТимотиШаламе", false},
                 { "Тимоти Ди Шаламе", false},
+                { null, false},
+                { "", false}
         };
     }
 
     @Test
+    @Step("Проверка имени для эмбоссирования")
+    @Description("Вызов проверки вводимой строки имени на соответствие условиям эмбоссирования")
     public void paramTest() {
         Account account = new Account(nameAccount);
         assertEquals("Полученный результат валидации имени "+ nameAccount +" отличается от ожидаемого!",
                 expectedValidation, account.checkNameToEmboss());
     }
-
 }
