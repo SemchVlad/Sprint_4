@@ -1,4 +1,4 @@
-
+import io.qameta.allure.Step;
 
 public class Account {
 
@@ -17,6 +17,7 @@ public class Account {
      * </ul>
      * @return
      */
+    @Step("Проверка имени для эмбоссирования")
     public boolean checkNameToEmboss() {
         if ((name == null) || name.isEmpty()) return false;
         boolean isLengthValid = name.length() >= 3 && name.length() <= 19;

@@ -1,5 +1,4 @@
 import io.qameta.allure.Description;
-import io.qameta.allure.Step;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -36,7 +35,6 @@ public class AccountParameterTest {
     }
 
     @Test
-    @Step("Проверка имени для эмбоссирования")
     @Description("Вызов проверки вводимой строки имени на соответствие условиям эмбоссирования")
     public void paramTest() {
         Account account = new Account(nameAccount);
